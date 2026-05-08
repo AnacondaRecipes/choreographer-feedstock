@@ -33,7 +33,11 @@ test:
     - choreographer
   commands:
     - pip check
-    - choreo_diagnose --help
+    # `choreo_diagnose` imports browser-detection helpers (`browser_which`,
+    # `Chromium`) BEFORE argparse parses --help, so it fails on a sterile
+    # Windows CI worker without Chrome installed. Skip on Windows; the
+    # diagnostic tool is meant for users introspecting their own environment.
+    - choreo_diagnose --help    # [not win]
     - choreo_get_chrome --help
   requires:
     - pip
