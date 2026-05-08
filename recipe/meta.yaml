@@ -13,9 +13,6 @@ build:
   number: 0
   skip: true  # [py<310]
   script:
-    # Drop upstream's tests/ and results/ directories before pip install:
-    # setuptools.find would otherwise pick them up as top-level packages.
-    - rm -rf tests results  # [unix]
     - if exist tests rmdir /S /Q tests  # [win]
     - if exist results rmdir /S /Q results  # [win]
     - {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
