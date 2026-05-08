@@ -24,7 +24,8 @@ requirements:
   host:
     - python
     - pip
-    - setuptools
+    - setuptools >=65.0.0
+    - wheel
     - setuptools-git-versioning
   run:
     - python
