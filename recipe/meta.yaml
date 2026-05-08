@@ -13,8 +13,6 @@ build:
   number: 0
   skip: true  # [py<310]
   script:
-    - if exist tests rmdir /S /Q tests  # [win]
-    - if exist results rmdir /S /Q results  # [win]
     - {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
 
 requirements:
